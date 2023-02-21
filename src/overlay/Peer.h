@@ -29,6 +29,7 @@ namespace stellar
 typedef std::shared_ptr<SCPQuorumSet> SCPQuorumSetPtr;
 
 class Application;
+class TxSetFrame;
 class LoopbackPeer;
 struct OverlayMetrics;
 
@@ -260,6 +261,8 @@ class Peer : public std::enable_shared_from_this<Peer>,
     void recvSurveyRequestMessage(StellarMessage const& msg);
     void recvSurveyResponseMessage(StellarMessage const& msg);
     void recvSendMore(StellarMessage const& msg);
+
+    void sendTxSet(std::shared_ptr<TxSetFrame const> txSet);
 
     void recvGetTxSet(StellarMessage const& msg);
     void recvTxSet(StellarMessage const& msg);
